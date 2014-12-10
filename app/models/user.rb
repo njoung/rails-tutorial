@@ -12,10 +12,12 @@ class User < ActiveRecord::Base
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
+  # has_secure_password enforces the presence of a password upon object creation
+  # so this allows for editing user data without changing the password
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
   has_secure_password
-  
+
   
   # Returns the hash digest of the given string.
   def User.digest(string)

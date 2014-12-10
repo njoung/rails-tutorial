@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def account_activation(user)
     @user = user
-    puts "sent email to #{user.email}"
     mail to: user.email, subject: "Account activation"
   end
 

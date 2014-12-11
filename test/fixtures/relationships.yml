@@ -1,0 +1,15 @@
+one:
+  follower: micky
+  followed: daffy
+
+two:
+  follower: micky
+  followed: walt
+
+three:
+  follower: daffy
+  followed: micky
+
+four:
+  follower: buggs
+  followed: micky

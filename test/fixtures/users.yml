@@ -22,6 +22,20 @@ daffy:
   activated: true
   activated_at: <%= Time.zone.now %>
   
+buggs:
+  name: Buggs Bunny
+  email: buggs@disney.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+goofy:
+  name: Goofy Goof
+  email: goofy@disney.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User #{n}" %>

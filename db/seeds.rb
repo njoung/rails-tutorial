@@ -8,8 +8,8 @@ User.create!(name:  "admin",
              
 # User.create!(name:  "Nick Joung",
 #             email: "njoung@yahoo.com",
-#             password:              "testpassword",
-#             password_confirmation: "testpassword",
+#             password:              "password",
+#             password_confirmation: "password",
 #             admin: true,
 #             activated: true,
 #             activated_at: Time.zone.now)

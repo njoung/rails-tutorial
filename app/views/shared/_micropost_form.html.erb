@@ -5,7 +5,9 @@
   </div>
   <div class="user_tags">
     <%= fields_for :user_tags, @user_tag do |tf| %>
-      <%= tf.text_area :tagged_user_emails, placeholder: "Tag user..." %>
+      <%= tf.text_area :emails, 
+          placeholder: "Tag users by their emails (Separate with spaces)"
+      %>
     <% end %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>

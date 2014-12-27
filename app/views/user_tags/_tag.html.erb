@@ -1,0 +1,5 @@
+<%= link_to user_tag.user.email, user_tag.user %>
+<% if remove_tag?(user_tag) %>
+  <%= link_to "(Remove Tag)", user_tag, method: :delete, 
+                        data: { confirm: "You sure?" } %>
+<% end %>

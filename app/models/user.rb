@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :tags,   class_name:  "UserTag", 
                     foreign_key: "user_id",
                     dependent: :destroy
+  has_many :tagged_posts, through: :tags, source: :micropost
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy

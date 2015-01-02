@@ -57,6 +57,13 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+  
+  def tags
+    @title = "Tags"
+    @user  = User.find(params[:id])
+    @tagged_posts = @user.tagged_posts.paginate(page: params[:page])
+    render 'show_tags'
+  end
 
   def destroy
     User.find(params[:id]).destroy

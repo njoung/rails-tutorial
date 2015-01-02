@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :user_tags,           only: [:destroy]
+  namespace :api, :defaults => {:format => :json} do
+    resources :microposts, only: [:show]
+    resources :users, only: [:show]
+  end
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

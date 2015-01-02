@@ -1,6 +1,11 @@
-Sample App from the Ruby On Rails Tutorial by Michael Hartl 
+Based off the the Sample App from the Ruby On Rails Tutorial by Michael Hartl 
 (https://www.railstutorial.org/book) 
 
 Written by Nick Joung
 
 Running at: https://whispering-beyond-9103.herokuapp.com/
+
+What's new:
+  - The ability to tag users in a micropost
+  - A twitter style API that lets allows someone to embed a micropost on another
+    webpage

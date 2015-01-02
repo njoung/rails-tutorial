@@ -18,12 +18,17 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :microposts,          only: [:create, :destroy]
+  # resources :microposts,          only: [:create, :destroy, :search]
+  resources :microposts, only: [:create, :destroy] do
+    collection do
+      post :search
+    end
+  end
   resources :relationships,       only: [:create, :destroy]
   resources :user_tags,           only: [:destroy]
   namespace :api, :defaults => {:format => :json} do
-    resources :microposts, only: [:show]
-    resources :users, only: [:show]
+    resources :microposts,        only: [:show]
+    resources :users,             only: [:show]
   end
 end
 

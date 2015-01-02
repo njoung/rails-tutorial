@@ -21,6 +21,13 @@ class MicropostsController < ApplicationController
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
+  
+  def search
+    @feed_items = Micropost.where(
+      "content LIKE ?", "%#{search_params}%")
+      .paginate(page: params[:page])
+    render 'static_pages/search_results'
+  end
 
   private
   
@@ -35,6 +42,10 @@ class MicropostsController < ApplicationController
     
     def micropost_params
       params.require(:micropost).permit(:content, :picture)
+    end
+    
+    def search_params
+      params.permit(:search)["search"]
     end
 
     def correct_user

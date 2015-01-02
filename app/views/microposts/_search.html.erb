@@ -1,0 +1,6 @@
+<%= form_tag :controller => 'microposts', :action => 'search', :method => 'get' do %>
+  <div class="field">
+    <%= text_field_tag :search, params[:search], placeholder: "Text to search for" %>
+  </div>
+  <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %> 
+<% end %> 

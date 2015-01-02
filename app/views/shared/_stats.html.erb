@@ -12,4 +12,10 @@
     </strong>
     followers
   </a>
+  <a href="<%= tags_user_path(@user) %>">
+    <strong id="tags" class="stat">
+      <%= @user.tags.count %>
+    </strong>
+    tags
+  </a>
 </div>

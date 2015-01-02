@@ -2,7 +2,7 @@ class Api::MicropostsController < ApplicationController
   respond_to :json, :html
 
   def show
-    respond_with Micropost.find(micropost_api_params)
+    respond_with Micropost.find_by_id(micropost_api_params)
   end
   
   private

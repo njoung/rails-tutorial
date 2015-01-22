@@ -10,3 +10,8 @@ What's new:
   - A twitter style API that lets allows someone to embed a micropost on another
     webpage
   - The ability to search for microposts
+  
+Wish List:
+  - PM's, possibly integrated into the post feed and controlled using permissions
+  - Multithreading
+    - K Means for avatar pictures?

@@ -1,9 +1,13 @@
 <% unless current_user?(@user) %>
   <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
-  <% end %>
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% elsif current_user.follow_request?(@user) %>
+      <%= render 'cancel_request' %>
+    <% elsif @user.is_private? %>
+      <%= render 'follow_request' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
   </div>
 <% end %>

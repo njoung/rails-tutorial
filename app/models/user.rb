@@ -10,8 +10,12 @@ class User < ActiveRecord::Base
   has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
+  has_many :pending_relationships, class_name: "FollowerRequest",
+                                   foreign_key: "follower_id",
+                                   dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :req_followers, through: :pending_relationships, source: :followed
   
   attr_accessor :remember_token, :activation_token, :reset_token
   
@@ -29,6 +33,7 @@ class User < ActiveRecord::Base
   # has_secure_password enforces the presence of a password upon object creation
   # so this allows for editing user data without changing the password
   validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :private, defaults: false
 
   has_secure_password
 
@@ -107,10 +112,28 @@ class User < ActiveRecord::Base
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+  
+  # Requests to follow a user.
+  def request_follow(other_user)
+    pending_relationships.create(followed_id: other_user.id)
+  end
+
+  # Destroys follow request.
+  def request_cancel(other_user)
+    pending_relationships.find_by(followed_id: other_user.id).destroy
+  end
 
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def follow_request?(other_user)
+    req_followers.include?(other_user)
+  end
+
+  def is_private?
+    self.private
   end
 
   private

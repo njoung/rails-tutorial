@@ -9,8 +9,14 @@ What's new:
   - The ability to tag users in a micropost
   - An API that allows users to get data on users and their posts
   - The ability to search for microposts
+  - Private users, follower requests
   
 Wish List:
-  - PM's, possibly integrated into the post feed and controlled using permissions
+  - PMs, possibly integrated into the post feed and controlled using permissions
+    - Also, public posts, restricted posts (to people following you)
+    - Following approval
+      - Public or private accounts
   - Multithreading
     - K Means for avatar pictures?
+  - FB, Twitter sign ins? 
+    - Check out Omniauth gem or do it yourself using their APIs

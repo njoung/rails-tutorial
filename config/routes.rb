@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
+  resources :follower_requests,   only: [:create, :destroy]
   resources :user_tags,           only: [:destroy]
   namespace :api, :defaults => {:format => :json} do
     resources :microposts,        only: [:show]
